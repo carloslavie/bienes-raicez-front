@@ -2,6 +2,8 @@ import React from 'react';
 import Iconos from './iconos';
 import styled from '@emotion/styled';
 import { GatsbyImage } from "gatsby-plugin-image";
+import { Link } from 'gatsby';
+import urlSlug from 'url-slug';
 
 const Card = styled.div`
     border: 1px solid #e1e1e1;
@@ -21,6 +23,19 @@ const Contenido = styled.div`
         font-size: 2rem;
         color:#75AB00;
     }
+`;
+
+const Boton = styled(Link)`
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #75ab00;
+    width: 100%;
+    color: #fff;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
 `;
 
 
@@ -43,6 +58,9 @@ console.log(propiedad.imagen)
                     estacionamiento={estacionamiento}
                     habitaciones={habitaciones}
                 />
+                <Boton to={urlSlug(nombre)}>
+                    Visitar Propiedad
+                </Boton>
             </Contenido>
         </Card>
      );
