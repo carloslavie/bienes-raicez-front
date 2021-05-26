@@ -1,5 +1,4 @@
 import { graphql, useStaticQuery } from 'gatsby';
-import ListadoPropiedades from '../components/listadoPropiedades';
 
 const usePropiedades = () => {
     const datos = useStaticQuery(graphql`

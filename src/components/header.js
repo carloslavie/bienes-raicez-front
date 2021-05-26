@@ -13,7 +13,7 @@ const Header = () => {
             }
         }
     `)
-    console.log(logo)
+    
     return ( 
         <header
             css={css`
@@ -34,7 +34,7 @@ const Header = () => {
                     }
                 `}
             >
-                <Link>
+                <Link to="/">
                     <img src={logo.publicURL} alt="logo bienes raices"/>
                 </Link>
 

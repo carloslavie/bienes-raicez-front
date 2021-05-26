@@ -43,8 +43,8 @@ const PropiedadPreview = ({propiedad}) => {
 
     
 
-    const { nombre, descripcion, imagen, wc, estacionamiento, habitaciones, precio } = propiedad;
-console.log(propiedad.imagen)
+    const { nombre, imagen, wc, estacionamiento, habitaciones, precio } = propiedad;
+
     return ( 
         <Card>
             <GatsbyImage image={imagen.localFile.childImageSharp.gatsbyImageData} alt="imagen propiedad" />

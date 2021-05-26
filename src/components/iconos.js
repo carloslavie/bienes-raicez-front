@@ -33,7 +33,6 @@ const Iconos = ({wc, estacionamiento, habitaciones}) => {
       
     `)
 
-    // console.log(iconos)
     const imagenesIconos = iconos.edges
     return ( 
 

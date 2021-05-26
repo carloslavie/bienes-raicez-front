@@ -3,6 +3,8 @@ import { css } from '@emotion/react';
 import usePropiedades from '../hooks/usePropiedades';
 import PropiedadPreview from './propiedadPreview';
 import styled from '@emotion/styled';
+import useFiltro from '../hooks/useFiltro';
+
 
 const PropiedadesCss = styled.ul`
     max-width: 1200px;
@@ -24,11 +26,23 @@ const PropiedadesCss = styled.ul`
 const ListadoPropiedades = () => {
 
     const resultado = usePropiedades();
-    const [ propiedades, guardarPropiedades ] = useState([])
+    const [ propiedades ] = useState(resultado)
+    const [ filtradas, guardarFiltradas ] = useState([])
+
+    //usar filtrado de propiedades
+    const { categoria, FiltroUI } = useFiltro();
 
     useEffect(() => {
-        guardarPropiedades(resultado)
-    }, [])
+        
+        
+        if(categoria === "--Filtrar--" || !categoria){
+            guardarFiltradas(propiedades)
+        }
+        else{
+            const filtro = propiedades.filter(propiedad=> propiedad.categorias.nombre === categoria);
+            guardarFiltradas(filtro)
+        }
+    }, [categoria, propiedades])
 
     return ( 
         <>
@@ -38,8 +52,10 @@ const ListadoPropiedades = () => {
             `}
         >Nuestras Propiedades</h2>
 
+        { FiltroUI() }
+
         <PropiedadesCss>
-            {propiedades.map(propiedad=>(
+            {filtradas.map(propiedad=>(
                 <PropiedadPreview 
                     key={propiedad.id}
                     propiedad={propiedad}
