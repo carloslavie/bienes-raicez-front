@@ -5,6 +5,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import BackgroundImage from 'gatsby-background-image';
 import Encuentra from '../components/encuentra';
+import ListadoPropiedades from '../components/listadoPropiedades';
 
 
 const ImagenBackground = styled(BackgroundImage)`
@@ -72,6 +73,8 @@ const Index = () => {
             </main>
 
             <Encuentra/>
+
+            <ListadoPropiedades/>
             
         </Layout>
      );
